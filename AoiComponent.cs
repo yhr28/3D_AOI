@@ -23,6 +23,7 @@ namespace AOI
         /// <param name="id">一般是角色的ID等其他标识ID</param>
         /// <param name="x">X轴位置</param>
         /// <param name="y">Y轴位置</param>
+        /// <param name="z">Z轴位置</param>
         /// <returns></returns>
         public AoiNode Enter(long id, float x, float y,float z)
         {
@@ -48,6 +49,7 @@ namespace AOI
         /// <param name="area">区域距离</param>
         /// <param name="x">X轴位置</param>
         /// <param name="y">Y轴位置</param>
+        /// <param name="z">Z轴位置</param>
         /// <returns></returns>
         public AoiNode Update(long id, Vector3 area, float x, float y,float z)
         {
@@ -61,6 +63,7 @@ namespace AOI
         /// <param name="area">区域距离</param>
         /// <param name="x">X轴位置</param>
         /// <param name="y">Y轴位置</param>
+        /// <param name="z">Z轴位置</param>
         /// <returns></returns>
         public AoiNode Update(AoiNode node, Vector3 area, float x, float y,float z)
         {
@@ -103,6 +106,7 @@ namespace AOI
         /// <param name="node">Aoi节点</param>
         /// <param name="x">X轴位置</param>
         /// <param name="y">Y轴位置</param>
+        /// <param name="z">Z轴位置</param>
         private void Move(AoiNode node, float x, float y,float z)
         {
             #region 移动X轴
