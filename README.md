@@ -28,7 +28,7 @@ var role2 = aoi.Enter(2, 12, 8,5);
 
 Console.WriteLine($"玩家二ID:{role2.Id}");
 
-aoi.Update(2, new Vector2(1, 1), 13, 8,5); // 玩家二移动
+aoi.Update(2, new Vector3(1, 1, 1), 13, 8,5); // 玩家二移动
 
 Console.WriteLine($"玩家二周围列表");
 
