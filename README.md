@@ -55,11 +55,13 @@ foreach (var aoiNode in role2.AoiInfo.MoveOnlySet) { Console.WriteLine(aoi.GetNo
 这样，所有的角色同时位于三个链表中。
 
 1 进入
+
 玩家进入时，根据x、y、z坐标排序，分别插入到x_list,y_list,z_list中。
 同时，根据可视距离，得到x_list中可视的角色集合x_set，y_set, z_set中可视的角色集合y_list,z_list
 那么(x_set & y_set & z_set)就是真正可视的角色集合，向其发送add消息
 
 2 移动
+
 根据角色之前的位置可以得到old_set；
 移动之后，需要根据新的x、y、z坐标，重新找到角色在x_list，y_list，z_list中的位置，
 然后的到新的可见角色集合为new_set，则
@@ -68,6 +70,7 @@ foreach (var aoiNode in role2.AoiInfo.MoveOnlySet) { Console.WriteLine(aoi.GetNo
 向（old_set & old_set）集合中玩家发送move消息；z
 
 3 离开
+
 向当前真正可视的角色发送levea消息，然后从x_list、y_list及z_list中删除即可。
 
 缺点，每次移动需要重新更新角色在链表中的位置，浪费CPU
