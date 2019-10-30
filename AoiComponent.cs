@@ -338,19 +338,21 @@ namespace AOI
         {
             node.AoiInfo.MovesSet.Clear();
             
-            for (var i = 0; i < 2; i++)
+                        
+            for (var i = 0; i < 3; i++)
             {
                 var cur = i == 0 ? node.Link.XNode.Next : node.Link.XNode.Previous;
 
                 while (cur != null)
                 {
-                    if (Math.Abs(Math.Abs(cur.Value.Position.X) - Math.Abs(node.Position.X)) > area.X)
+                    if (Math.Abs(Math.Abs(cur.Value.Position.x) - Math.Abs(node.Position.x)) > area.x)
                     {
                         break;
                     }
-                    else if (Math.Abs(Math.Abs(cur.Value.Position.Y) - Math.Abs(node.Position.Y)) <= area.Y)
+                    else if ((Math.Abs(Math.Abs(cur.Value.Position.y) - Math.Abs(node.Position.y)) <= area.y)
+                          &&(Math.Abs(Math.Abs(cur.Value.Position.z) - Math.Abs(node.Position.z)) <= area.z))
                     {
-                        if (Distance(node.Position, cur.Value.Position) <= area.X)
+                        if (Distance(node.Position, cur.Value.Position) <= area.x)
                         {
                             if (!node.AoiInfo.MovesSet.Contains(cur.Value.Id)) node.AoiInfo.MovesSet.Add(cur.Value.Id);
                         }
@@ -360,19 +362,20 @@ namespace AOI
                 }
             }
 
-            for (var i = 0; i < 2; i++)
+            for (var i = 0; i < 3; i++)
             {
                var cur = i == 0 ? node.Link.YNode.Next : node.Link.YNode.Previous;
 
                 while (cur != null)
                 {
-                    if (Math.Abs(Math.Abs(cur.Value.Position.Y) - Math.Abs(node.Position.Y)) > area.Y)
+                    if (Math.Abs(Math.Abs(cur.Value.Position.y) - Math.Abs(node.Position.y)) > area.y)
                     {
                         break;
                     }
-                    else if (Math.Abs(Math.Abs(cur.Value.Position.X) - Math.Abs(node.Position.X)) <= area.X)
+                    else if ((Math.Abs(Math.Abs(cur.Value.Position.x) - Math.Abs(node.Position.x)) <= area.x)
+                          &&(Math.Abs(Math.Abs(cur.Value.Position.z) - Math.Abs(node.Position.z)) <= area.z))
                     {
-                        if (Distance(node.Position, cur.Value.Position) <= area.Y)
+                        if (Distance(node.Position, cur.Value.Position) <= area.y)
                         {
                             if (!node.AoiInfo.MovesSet.Contains(cur.Value.Id)) node.AoiInfo.MovesSet.Add(cur.Value.Id);
                         }
@@ -382,6 +385,28 @@ namespace AOI
                 }
             }
 
+            for (var i = 0; i < 3; i++)
+            {
+                var cur = i == 0 ? node.Link.ZNode.Next : node.Link.ZNode.Previous;
+
+                while (cur != null)
+                {
+                    if (Math.Abs(Math.Abs(cur.Value.Position.z) - Math.Abs(node.Position.z)) > area.z)
+                    {
+                        break;
+                    }
+                    else if ((Math.Abs(Math.Abs(cur.Value.Position.x) - Math.Abs(node.Position.x)) <= area.x)
+                          &&(Math.Abs(Math.Abs(cur.Value.Position.y) - Math.Abs(node.Position.y)) <= area.y))
+                    {
+                        if (Distance(node.Position, cur.Value.Position) <= area.z)
+                        {
+                            if (!node.AoiInfo.MovesSet.Contains(cur.Value.Id)) node.AoiInfo.MovesSet.Add(cur.Value.Id);
+                        }
+                    }
+
+                    cur = i == 0 ? cur.Next :cur.Previous;
+                }
+            }
             return node;
         }
 
