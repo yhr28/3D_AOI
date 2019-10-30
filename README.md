@@ -48,6 +48,7 @@ Console.WriteLine($"玩家二移动列表");
 foreach (var aoiNode in role2.AoiInfo.MoveOnlySet) { Console.WriteLine(aoi.GetNode(aoiNode).Position); }
 
 二、如何使用十字链表
+
 首先，根据场景中所有角色的x坐标排序，将其放入一个链表x_list中；
 然后，根据场景中所有角色的y坐标排序，将其放入一个链表y_list中；
 再接着根据场景中所有角色的z坐标排序，将其放入一个链表z_list中；
